@@ -5,13 +5,14 @@
 using namespace std;
 
 auto comp = [](pair<int, int> a, pair<int,int> b) {
-        return a.second < b.second;
+        return a.first < b.first;
 };
 
 int main() {
     int n;
     cin >> n;
-    int count = 1;
+    int count = 0;
+    int max = 0;
     vector<pair<int, int>> v;
     v.resize(n);
     for (int i = 0; i < n; i++) {
@@ -19,16 +20,22 @@ int main() {
         cin >> v[i].second;
     }
 
-    sort(v.begin(), v.end(), comp);
+    vector<pair<int, int>> x;
+    for (int i = 0; i < n; i++) {
+        x.push_back(make_pair(v[i].first,1));
+        x.push_back(make_pair(v[i].second,-1));
+    }
 
-    for (int i = 0; i <= n-1; i++) {
-        if(v[i].second > v[i+1].first){
-            count++;
+    sort(x.begin(), x.end(), comp);
+
+    for (int i = 0; i < n*2; i++) {
+        count += x[i].second;
+        if(count>max){
+            max = count;
         }
     }
 
-    cout << count;
-
+    cout << max;
 
     return 0;
 }

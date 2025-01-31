@@ -16,50 +16,40 @@ bool backtrack(int i, queue<int> &hat, int x){
 }
 
 
-bool ishappy(int n,  queue<int> hat, string arr) {
-        int x = 0;
-
-        for (int i = 0; i < n; i++) {
-            // cout << "From Top "<< arr[i] << endl;
-            if(arr[i] == '1'){
-                if(backtrack(i, hat, x)){
-                    x = i + 1;
-                }else{
-                    return false;
-                }
-            } else{
-            }
-    }
-    return true;
-}
-
-
-
 int main() {
     int testcase;
     cin >> testcase;
 
     for (int i = 0; i < testcase; i++) {
+        int x = 0;
+        bool condition = true;
         int n;
         cin >> n;
         queue<int> hat;
-        int x;
+        int y;
         for (int i = 0; i < n; i++) {
-            cin >> x;
-            hat.push(x);
+            cin >> y;
+            hat.push(y);
         }
         string arr;
         cin >> arr;
-
-        if (ishappy(n, hat, arr)){
+        for (int i = 0; i < n; i++) {
+            if(arr[i] == '1'){
+                if(backtrack(i, hat, x)){
+                    x = i + 1;
+                }else{
+                    cout << i << endl;
+                    cout << "No" << endl;
+                    condition = false;
+                    break;
+                }
+            }
+        }
+        if (condition){
             cout << "YES" << endl;
-        }else{
-            cout << "No" << endl;
         }
 
     }
-
-
 
     return 0;
 }
