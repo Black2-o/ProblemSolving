@@ -1,55 +1,61 @@
 #include <iostream>
-#include <queue>
 using namespace std;
 
 
-bool backtrack(int i, queue<int> &hat, int x){
-    for(int j = x; j <= i; j++){
-        if(i+1 == hat.front()){
-            hat.pop();
-            return true;
-        }else{
-            hat.pop();
-        }
-    }
-    return false;
-}
+void solve(){
+    int n;
+    cin >> n;
 
+    int cap[n+1];
+    for(int i=1; i<= n ;i++) cin >> cap[i];
+    char serial[n+1];
+    for(int i=1; i <= n; i++) cin >> serial[i];
 
-int main() {
-    int testcase;
-    cin >> testcase;
-
-    for (int i = 0; i < testcase; i++) {
-        int x = 0;
-        bool condition = true;
-        int n;
-        cin >> n;
-        queue<int> hat;
-        int y;
-        for (int i = 0; i < n; i++) {
-            cin >> y;
-            hat.push(y);
-        }
-        string arr;
-        cin >> arr;
-        for (int i = 0; i < n; i++) {
-            if(arr[i] == '1'){
-                if(backtrack(i, hat, x)){
-                    x = i + 1;
+    int i = 1, j = 1;
+    while(j <= n){
+        if(serial[j] == '1'){
+            // Must Give Cap
+            if(j == cap[i]){
+                // Happy
+                j++;
+                i++;
+            }else{
+                // Unhappy
+                cout << "NO" << endl;
+                return;
+            }
+        } else{
+            // Must Not
+            if(j==cap[i]){
+                // cout << "Here J is " << j << " And I is "<< i << " And Cap[i] is " << cap[i] << endl;
+                // Not Give Him
+                j++;
+            }else{
+                // Otherwise 
+                if(serial[cap[i]] == '1'){
+                    // cout << "Here J is " << j << " Here I is " << i << " And Cap[i] is " << cap[i] << " And serial[cap[i]] is " << serial[cap[i]] << endl;
+                    // Not Given 
+                    j++;
                 }else{
-                    cout << i << endl;
-                    cout << "No" << endl;
-                    condition = false;
-                    break;
+                    // Given
+                    j++;
+                    i++;
                 }
             }
         }
-        if (condition){
-            cout << "YES" << endl;
-        }
-
     }
+    cout << "YES" << endl;
+    return;
+}
 
+
+
+int main(){
+    int t;
+    cin>>t;
+    for(int tc=0; tc < t; tc++){
+        // cout<<"Case "<<tc<<": " << endl;
+        solve();
+    }
     return 0;
 }
