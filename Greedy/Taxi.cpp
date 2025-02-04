@@ -23,9 +23,15 @@ int main() {
             j--;
             taxi += 1;
         } else if(arr[j] + arr[i] <= 4){
-            // for(int x = 0; x < 4; x++){
-            //     if()
-            // }
+            if(arr[j] + arr[i] + arr[i+1] <= 4){
+                i++;
+                // cout << "Hlo" << endl;
+            }
+            if(arr[j] + arr[i] + arr[i+1] + arr[i+2] <= 4){
+                i++;
+                // cout << "Hlo" << endl;
+                
+            }
             i++;
             j--;
             taxi+=1;
