@@ -106,12 +106,50 @@ void pattern10(int n){
         cout << endl;
     }
 }
+void pattern11(int n){
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j <= i; j++){
+            if(i%2 == 0 and j%2 == 0){
+                cout << 1 << " ";
+            }else if(i%2 != 0 and j%2 != 0){
+                cout << 1 << " ";
+            }else{
+                cout << 0 << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+void pattern12(int n){
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= i; j++){
+            cout << j;
+        }
+        for(int j = 0; j < (n-i)*2; j++){
+            cout << " ";
+        }
+        for(int j = i; j > 0; j--){
+            cout << j;
+        }
 
+        cout << endl;
+    }
+}
+void pattern13(int n){
+    int x = 0;
+    for(int i = 1; i <= n; i++){
+        for(int j = 0; j < i; j++){
+            x+=1;
+            cout << x << " ";
+        }
+        cout << endl;
+    }
+}
 
 
 int main() {
     int n;
     cin >> n;
-    pattern10(n);
+    pattern13(n);
     return 0;
 }
