@@ -1,4 +1,5 @@
 #include <iostream>
+#include <numeric> // For Generating Eng Char Start From 14
 using namespace std;
 
 
@@ -145,11 +146,32 @@ void pattern13(int n){
         cout << endl;
     }
 }
+void pattern14(int n){
+    char albet[26] {};
+    std::iota(std::begin(albet), std::end(albet), 'A');
+    for(int i = 1; i <= n; i++){
+        for(int j = 0; j < i; j++){
+            cout << albet[j] << " ";
+        }
+        cout << endl;
+    }
+}
+void pattern15(int n){
+    char albet[26] {};
+    std::iota(std::begin(albet), std::end(albet), 'A');
+    for(int i = 1; i <= n; i++){
+        for(int j = 0; j < (n-i)+1; j++){
+            cout << albet[j] << " ";
+        }
+        cout << endl;
+    }
+}
+
 
 
 int main() {
     int n;
     cin >> n;
-    pattern13(n);
+    pattern15(n);
     return 0;
 }
