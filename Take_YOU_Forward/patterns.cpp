@@ -166,12 +166,59 @@ void pattern15(int n){
         cout << endl;
     }
 }
-
-
+void pattern16(int n){
+    char albet[26] {};
+    std::iota(std::begin(albet), std::end(albet), 'A');
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j <= i; j++){
+            cout << albet[i] << " ";
+        }
+        cout << endl;
+    }
+}
+void pattern17(int n){
+    char albet[26] {};
+    std::iota(std::begin(albet), std::end(albet), 'A');
+    for(int i = 1; i <= n; i++){
+        for(int j = 0; j < n-i; j++){
+            cout << " ";
+        }
+        for(int j = 0; j < i; j++){
+            cout << albet[j] << " ";
+        }
+        for(int j = i-1; j > 0; j--){
+            cout << albet[j-1] << " ";
+        }
+        for(int j = 0; j < n-i; j++){
+            cout << " ";
+        }
+        cout << endl;
+    }
+}
+void pattern18X(int n){
+    char albet[26] {};
+    std::iota(std::begin(albet), std::end(albet), 'A');
+    for(int i = n-1; i >= 0; i--){
+        for(int j = n-1; j >= i; j--){
+            cout << albet[j] << " ";
+        }
+        cout << endl;
+    }
+}
+void pattern18(int n){
+    char albet[26] {};
+    std::iota(std::begin(albet), std::end(albet), 'A');
+    for(int i = n-1; i >= 0; i--){
+        for(int j = i; j < n; j++){
+            cout << albet[j] << " ";
+        }
+        cout << endl;
+    }
+}
 
 int main() {
     int n;
     cin >> n;
-    pattern15(n);
+    pattern18(n);
     return 0;
 }
