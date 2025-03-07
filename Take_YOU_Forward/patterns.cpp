@@ -215,10 +215,96 @@ void pattern18(int n){
         cout << endl;
     }
 }
+void pattern19(int n){
+    for(int i = 0; i < n; i++){
+        for(int j = n; j > i; j--){
+            cout << "*";
+        }
+        for(int j = 0; j < i*2; j++){
+            cout << " ";
+        }
+        for(int j = n; j > i; j--){
+            cout << "*";
+        }
+        cout << endl;
+    }
+    for(int i = 1; i <= n; i++){
+        for(int j = 0; j < i; j++){
+            cout << "*";
+        }
+        for(int j = 0; j < (n-i)*2; j++){
+            cout << " ";
+        }
+        for(int j = 0; j < i; j++){
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+void pattern20(int n){
+    for(int i = 1; i <= n; i++){
+        for(int j = 0; j < i; j++){
+            cout << "*";
+        }
+        for(int j = 0; j < (n-i)*2; j++){
+            cout << " ";
+        }
+        for(int j = 0; j < i; j++){
+            cout << "*";
+        }
+        cout << endl;
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = n; j > i; j--){
+            cout << "*";
+        }
+        for(int j = 0; j < i*2; j++){
+            cout << " ";
+        }
+        for(int j = n; j > i; j--){
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+void pattern21(int n){
+    if(n == 1){
+        cout << "*";
+        return;
+    }
+    for(int i = 0; i < n; i++){
+        cout << "*";
+    } cout << endl;
+    for(int i = 0; i < n-2; i++){
+        cout << "*";
+        for(int j = 0; j < n-2; j++){
+            cout << " ";
+        }
+        cout << "*";
+        cout << endl;
+    }
+    for(int i = 0; i < n; i++){
+        cout << "*";
+    }
+}
+void pattern22(int n){
+    int x = n;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(i == j){
+                cout << "*";
+                cout << x;
+            }else{
+                cout << n-i;
+            }
+        }
+        cout << endl;
+    }
+}
 
 int main() {
     int n;
     cin >> n;
-    pattern18(n);
+    pattern22(n);
     return 0;
 }
