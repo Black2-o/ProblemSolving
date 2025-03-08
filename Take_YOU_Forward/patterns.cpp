@@ -288,14 +288,36 @@ void pattern21(int n){
     }
 }
 void pattern22(int n){
-    int x = n;
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
-            if(i == j){
-                cout << "*";
-                cout << x;
+            if(i <= j){
+                cout << n-i << " ";
             }else{
-                cout << n-i;
+                cout << n-j << " ";
+            }
+        }
+        for(int j = 0; j < n-1; j++){
+            if(j < n-i-1){
+                cout << n-i << " ";
+            }else{
+                cout << j+2 << " ";
+            }
+        }
+        cout << endl;
+    }
+    for(int i = n-2; i >= 0; i--){
+        for(int j = 0; j < n; j++){
+            if(i <= j){
+                cout << n-i << " ";
+            }else{
+                cout << n-j << " ";
+            }
+        }
+        for(int j = 0; j < n-1; j++){
+            if(j < n-i-1){
+                cout << n-i << " ";
+            }else{
+                cout << j+2 << " ";
             }
         }
         cout << endl;
