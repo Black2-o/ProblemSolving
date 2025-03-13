@@ -3,48 +3,38 @@ using namespace std;
 
 
 
-void r1(int i, int n){
+void Parameterised(int n, int sum){
+    // Parameterised Way 
+    if(n < 1){
+        cout << sum;
+        return;
+    }
+    Parameterised(n-1, sum+n);
+}
 
-    // #Learned
-    // - Recursion
-    // - Base Case 
-    // - Stack Overflow / Stack Spaces 
-    // - Recursion Tree 
-
-    if(i >= n) return;
+int functional(int n){
+    if(n == 0) return 0;
     
-    cout << i << "\n";
-    i++;
-    r1(i, n);
+    return n + functional(n-1);
+
 }
-void r2(int i, int n){
-    // if(i >= n) return;
-    // // cout << "Black" << "\n";
-    // cout << i+1 << "\n";
-    // i++;
-    // r2(i, n);
 
-
-    // if(n < 1) return;
-    // cout << n << "\n";
-    // n--;
-    // r2(i, n);
-
-    // // Backtracking
-    // if(i < 1) return;
-    // r2(i-1, n);
-    // cout << i << "\n";
-
-    // Backtracking
-    if(i > n) return;
-    r2(i+1, n);
-    cout << i << "\n";
+int factorial(int n){
+    if(n == 1) return 1;
+    return n* factorial(n-1);
 }
+
 
 int main() {
     int n;
     cin >> n;
     int i = 0;
-    r2(i, n);
+    // Parameterised(n, i);
+    // int sum = functional(n);    
+    // cout << sum;
+
+    int factorialValue = factorial(n);
+    cout << factorialValue;
+
     return 0;
 }
