@@ -2,48 +2,37 @@
 using namespace std;
 
 
-// Re 4. Problems on Functional Recursion | Strivers A2Z DSA Course
-// Reverse an Array 
-// Palindrome a Word 
+// * Fibonacci - Re 5. Multiple Recursion Calls | Problems | Strivers A2Z DSA Course
 
-void reverseArray(int arr[], int start, int end){
-    if(end <= start) return;
-    swap(arr[start], arr[end]);
-    reverseArray(arr, start+1, end-1);
-}
+// Exponcial 2^n  near this.
 
-void anotherReverseArray(int arr[], int i, int n){
-    if(i >= n/2) return;
-    swap(arr[i], arr[n-i-1]);
-    anotherReverseArray(arr, i+1, n);
-}
-
-bool palindrome(string str, int i, int n){
-    if(i >= n/2) return true;
-
-    if(palindrome(str, i+1, n)){
-        if(str[i] == str[n-i-1]) return true;
-        else return false;
-    }else{
-        return false;
+void fibonnacciforloop(int n){
+    int a = 0;
+    int b = 1;
+    int num = 0;
+    for(int i = 0; i < n-1; i++){
+        num = a + b;
+        a = b;
+        b = num;
     }
+    cout << num;
 }
+
+int fibonacci(int n){
+    if(n <= 1) return n;
+
+    return fibonacci(n-1) + fibonacci(n-2);
+}
+
+
 
 int main() {
-    // int n;
-    // cin >> n;
-    // // int i = 0;
-    // int arr[n];
-    // for(int i = 0; i < n; i++) cin >> arr[i];
-    // // reverseArray(arr, 0, n-1);
-    // anotherReverseArray(arr, 0, n);
-    // for(int i = 0; i < n; i++) cout << arr[i] << " ";
+    int n;
+    cin >> n;
 
-    string str;
-    cin >> str;
-    int len = str.length();
-    bool ispa = palindrome(str, 0, len);
-    cout << ispa;
+    // fibonnacciforloop(n);
+
+    cout << fibonacci(n);
 
     return 0;
 }
