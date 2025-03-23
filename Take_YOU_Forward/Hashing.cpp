@@ -59,10 +59,72 @@ void HasingPrecomputation(){
 
 }
 
+void HashDeclaration(){
+    // In Main function We Can Only Declare 1e6 Value in Array 
+    // But In Global We can DEclare 10e8 Value in Array 
+    // But What About Next 
+}
+
+
+void CharecterHashingBasic(){
+    string s;
+    cin >> s;
+    int l = s.length();
+
+    char findit = 'c';
+
+    // char hash[26] = {0};
+    int count = 0;
+
+    for(int i = 0; i < l; i++){
+        if(s[i] == findit){
+            count +=1;
+        }
+    }
+
+    // for(int i = 0; i < 26; i++){
+    //     cout << hash[i] << endl;
+    // }
+    cout << count;
+}
+
+void CharecterHashing(){
+    string s;
+    cin >> s;
+    int l = s.length();
+
+    // ASCII Value 
+    // small a ascii value is 97 and small z ascii value is 122
+    
+
+    int hash[26] = {0};
+
+    // Create the Hash Map
+    for(int i = 0; i < l; i++){
+        hash[s[i] - 'a'] += 1;
+    }
+
+
+    // Printing The Hash Map
+    // for(int i = 0; i < 26; i++){
+    //     cout << i << " " << hash[i] << endl;
+    // }
+
+    // Get the value for which should find
+    int n;cin >> n;
+    char c[n];for(int i = 0; i < n; i++) cin >> c[i]; 
+
+    for(int i = 0; i < n; i++){
+        cout << c[i]  << " " << hash[c[i] - 97] << endl; 
+    }
+
+
+}
+
 
 int main() {
 
-    HasingPrecomputation();
+    CharecterHashing();
 
     return 0;
 }
