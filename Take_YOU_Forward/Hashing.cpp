@@ -1,4 +1,6 @@
 #include <iostream>
+#include <algorithm>
+#include <map>
 using namespace std;
 
 
@@ -122,9 +124,45 @@ void CharecterHashing(){
 }
 
 
+void UnorderedMap(){
+    // They has to be a key and here key is the number
+    // There has to be a value and here value is how many number that key
+    // LIke mpp[arr[i]]++
+
+    // 1 2 3 1 3 2 12
+
+    int n;
+    cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++) cin >> arr[i];
+
+
+    //pre-compute
+    map<int, int> map;
+    for(int i = 0; i < n; i++) map[arr[i]]++;
+
+
+    // // Itrate the map 
+    // for(auto it: map){
+    //     cout << it.first << "=>" << it.second << endl;
+    // }
+
+
+    int q; // which should be found that means it is a list of n
+    cin >> q;
+    while(q--){
+        int num;
+        cin >> num;
+        cout << num << " ";
+        //fetch
+        cout << map[num] << endl;
+    }
+
+}
+
 int main() {
 
-    CharecterHashing();
+    UnorderedMap();
 
     return 0;
 }
