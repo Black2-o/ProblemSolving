@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <map>
+#include <unordered_map>
 using namespace std;
 
 
@@ -138,14 +139,22 @@ void UnorderedMap(){
 
 
     //pre-compute
-    map<int, int> map;
+    // map<int, int> map;
+    //UnOrdered Map
+    unordered_map<int, int> map;
+
+    // GenerallY Map Time Case is Big O(log n) all the time 
+    // But UnOrderedMap Time Case is Big O(1) in ALl Case but SOme Case It can be Big O(n)
+    // SO Our First Preferance will be UnorderedMap Because It will not O(n) FOr most of the case like 95% or more 
+    // If we Get Big O(n) In UnOrderedMap then we will use Map 
+
     for(int i = 0; i < n; i++) map[arr[i]]++;
 
 
-    // // Itrate the map 
-    // for(auto it: map){
-    //     cout << it.first << "=>" << it.second << endl;
-    // }
+    // Itrate the map 
+    for(auto it: map){
+        cout << it.first << "=>" << it.second << endl;
+    }
 
 
     int q; // which should be found that means it is a list of n
