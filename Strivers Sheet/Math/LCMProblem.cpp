@@ -9,21 +9,14 @@ int main(){
     for(int i = 0; i < t; i++){
         int l, r; cin >> l >> r;
 
+        int x = l;
+        int y = 2 * l;
 
-        int max = (l > r) ? l : r;
-
-        do
-        {
-            if (max % l == 0 && max % r == 0)
-            {
-                cout << "LCM = " << max << endl;
-                break;
-            }
-            else
-                ++max;
-        } while (true);
-
-        // cout << r / l  << endl;
+        if(y <= r){
+            cout << x << " " << y << endl;
+        }else{
+            cout << "-1 -1" << endl;
+        }
 
     }
     
