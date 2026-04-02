@@ -327,6 +327,6 @@ void pattern22(int n){
 int main() {
     int n;
     cin >> n;
-    pattern22(n);
+    pattern1(n);
     return 0;
 }
